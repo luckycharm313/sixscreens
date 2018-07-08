@@ -104,7 +104,7 @@
             android:layout_marginBottom="35px"
             android:layout_marginTop="25px"
             android:background="@drawable/bg_round_background_green"
-            android:text="@string/transfer"
+            android:text="@string/clockIn"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/s_32"

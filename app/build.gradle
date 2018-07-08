@@ -19,10 +19,12 @@ android {
 }
 
 dependencies {
+    def supportLibsVer = "27.+"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.+'
-    compile "com.android.support:cardview-v7:27.+"
-    compile "com.android.support:recyclerview-v7:27.+"
+    compile "com.android.support:appcompat-v7:$supportLibsVer"
+    compile "com.android.support:cardview-v7:$supportLibsVer"
+    compile "com.android.support:design:$supportLibsVer"
+    compile "com.android.support:recyclerview-v7:$supportLibsVer"
     compile 'com.jakewharton:butterknife:8.7.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
