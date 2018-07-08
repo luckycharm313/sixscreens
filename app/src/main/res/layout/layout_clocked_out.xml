@@ -84,7 +84,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:padding="15px">
+                android:padding="15px"
+                android:clickable="true"
+                android:onClick="onChangeJob">
 
                 <ImageView
                     android:id="@+id/btn_job_right"
@@ -104,6 +106,7 @@
             android:layout_marginBottom="35px"
             android:layout_marginTop="25px"
             android:background="@drawable/bg_round_background_green"
+            android:onClick="onClockIn"
             android:text="@string/clockIn"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"

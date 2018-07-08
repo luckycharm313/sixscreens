@@ -11,4 +11,5 @@
     <color name="colorGreen">#3AB767</color>
     <color name="colorBlue">#418dff</color>
     <color name="colorYellow">#FFC107</color>
+    <color name="colorBlackLightCustomToast">#7f000000</color>
 </resources>

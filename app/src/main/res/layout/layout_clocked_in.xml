@@ -25,7 +25,7 @@
             android:layout_toLeftOf="@+id/img_avatar">
 
             <TextView
-                android:id="@+id/txt_username"
+                android:id="@+id/txt_jobName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Install Kichem Dos"
@@ -37,7 +37,7 @@
                 android:id="@+id/txt_clockIn_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txt_username"
+                android:layout_below="@+id/txt_jobName"
                 android:text="3h:12m:06s"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
@@ -45,15 +45,17 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/img_avatar"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_avatar_in"
             android:layout_width="105px"
             android:layout_height="105px"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="13px"
-            android:scaleType="fitCenter"
-            android:src="@drawable/avatar" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar"
+            app:civ_border_color="@color/colorWhite"
+            app:civ_border_width="5px" />
 
     </RelativeLayout>
 
@@ -286,6 +288,7 @@
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/s_32"
+        android:onClick="onClockOut"
         android:textStyle="bold" />
 
     <TextView

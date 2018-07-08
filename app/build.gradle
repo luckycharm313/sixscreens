@@ -32,4 +32,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile 'de.hdodenhof:circleimageview:2.2.0'
 }
