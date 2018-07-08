@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">SixScreensDemo</string>
+    <string name="heartland">Heartland</string>
+    <string name="time">Time</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="copyright">\u00a9 2018 - All Rights Reserved</string>
+    <string name="dashboard">dashboard</string>
+    <string name="current_clocked_out">Currently Clocked Out</string>
+    <string name="job">Job</string>
+    <string name="type">Type</string>
+    <string name="clockIn">Clock In</string>
+    <string name="show_all_options">Show All Options</string>
+    <string name="scheduled_hours">Scheduled Hours</string>
+    <string name="estimated">Estimated</string>
+    <string name="gross_pay">Gross Pay</string>
+    <string name="view_timesheet">View Timesheet</string>
+    <string name="next_shift">Next Shift</string>
+    <string name="cover_shift">Cover Shift</string>
+    <string name="swap_shift">Swap Shift</string>
+    <string name="schedule">schedule</string>
+    <string name="timesheets">timesheets</string>
+    <string name="timeoff">timeoff</string>
+    <string name="messages">messages</string>
+    <string name="transfer">Transfer</string>
+    <string name="take_break">Take a Break</string>
+    <string name="clockOut">Clock Out</string>
 </resources>

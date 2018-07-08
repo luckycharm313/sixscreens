@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:elevation="6px"
+    android:paddingLeft="@dimen/s_40"
+    android:paddingRight="@dimen/s_40">
+
+    <RelativeLayout
+        android:id="@+id/rl_clock_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33px"
+        android:background="@drawable/bg_round_title"
+        android:padding="36px">
+
+        <RelativeLayout
+            android:id="@+id/rl_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/img_avatar">
+
+            <TextView
+                android:id="@+id/txt_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Install Kichem Dos"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/s_28" />
+
+            <TextView
+                android:id="@+id/txt_clockIn_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_username"
+                android:text="3h:12m:06s"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/s_42"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="105px"
+            android:layout_height="105px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13px"
+            android:scaleType="fitCenter"
+            android:src="@drawable/avatar" />
+
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:id="@+id/txt_line"
+        android:layout_width="match_parent"
+        android:layout_height="8px"
+        android:layout_below="@+id/rl_clock_time"
+        android:background="@color/colorGreen" />
+
+    <RelativeLayout
+        android:id="@+id/rl_map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_line"
+        android:layout_marginBottom="15px"
+        android:layout_marginTop="10px">
+
+        <RelativeLayout
+            android:id="@+id/rl_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_map_icon"
+                android:layout_width="20px"
+                android:layout_height="24px"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/map" />
+
+            <TextView
+                android:id="@+id/txt_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15px"
+                android:layout_toRightOf="@+id/img_map_icon"
+                android:text="865 Market St., San Francisco, CA 94103"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlockSecondary"
+                android:textSize="@dimen/s_24" />
+        </RelativeLayout>
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="260px"
+            android:layout_below="@+id/rl_address"
+            android:layout_marginTop="10px" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_job"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_map"
+        android:layout_marginTop="25px"
+        android:background="@drawable/bg_round_green"
+        android:paddingLeft="36px"
+        android:paddingRight="36px">
+
+        <RelativeLayout
+            android:id="@+id/rl_job_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27px">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_job_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10px"
+                android:layout_toLeftOf="@+id/rl_btn_right">
+
+                <TextView
+                    android:id="@+id/txt_job"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/job"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlockSecondary"
+                    android:textSize="@dimen/s_24" />
+
+                <TextView
+                    android:id="@+id/txt_job_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/txt_job"
+                    android:layout_centerVertical="true"
+                    android:text="Paint Cabinets"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlockSecondary"
+                    android:textSize="@dimen/s_32"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_btn_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="15px">
+
+                <ImageView
+                    android:id="@+id/btn_job_right"
+                    android:layout_width="32px"
+                    android:layout_height="42px"
+                    app:srcCompat="@drawable/right" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btn_clock_in"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:layout_below="@+id/rl_job_top"
+            android:layout_marginBottom="35px"
+            android:layout_marginTop="25px"
+            android:background="@drawable/bg_round_background_green"
+            android:text="@string/transfer"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/s_32"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_break_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_job"
+        android:layout_marginTop="25px"
+        android:background="@drawable/bg_round_yellow"
+        android:paddingLeft="36px"
+        android:paddingRight="36px">
+
+        <RelativeLayout
+            android:id="@+id/rl_type_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27px">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_break_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10px"
+                android:layout_toLeftOf="@+id/rl_btn_right_type">
+
+                <TextView
+                    android:id="@+id/txt_break_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/type"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlockSecondary"
+                    android:textSize="@dimen/s_24" />
+
+                <TextView
+                    android:id="@+id/txt_break_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/txt_break_type"
+                    android:layout_centerVertical="true"
+                    android:text="Meal Break"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlockSecondary"
+                    android:textSize="@dimen/s_32"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_btn_right_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="15px">
+
+                <ImageView
+                    android:id="@+id/btn_type_right"
+                    android:layout_width="32px"
+                    android:layout_height="42px"
+                    app:srcCompat="@drawable/right" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+        <Button
+            android:id="@+id/btn_break"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:layout_below="@+id/rl_type_top"
+            android:layout_marginBottom="35px"
+            android:layout_marginTop="25px"
+            android:background="@drawable/bg_round_background_yellow"
+            android:text="@string/take_break"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/s_32"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_check_out"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_below="@+id/rl_break_type"
+        android:layout_marginLeft="36px"
+        android:layout_marginRight="36px"
+        android:layout_marginTop="25px"
+        android:background="@drawable/bg_round_background_red"
+        android:text="@string/clockOut"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/s_32"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/btn_show_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_check_out"
+        android:layout_marginBottom="44px"
+        android:layout_marginTop="37px"
+        android:text="@string/show_all_options"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlockSecondary"
+        android:textSize="@dimen/s_28" />
+
+</RelativeLayout>

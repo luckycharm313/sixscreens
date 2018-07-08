@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:elevation="6px"
+    android:paddingLeft="@dimen/s_40"
+    android:paddingRight="@dimen/s_40">
+
+    <TextView
+        android:id="@+id/txt_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33px"
+        android:background="@drawable/bg_round_title"
+        android:paddingBottom="26px"
+        android:paddingTop="44px"
+        android:text="@string/current_clocked_out"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/s_32" />
+
+    <TextView
+        android:id="@+id/txt_line"
+        android:layout_width="match_parent"
+        android:layout_height="8px"
+        android:layout_below="@+id/txt_username"
+        android:background="@color/colorRed" />
+
+    <RelativeLayout
+        android:id="@+id/rl_job"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_line"
+        android:layout_marginTop="25px"
+        android:background="@drawable/bg_round_green"
+        android:paddingLeft="36px"
+        android:paddingRight="36px">
+
+        <RelativeLayout
+            android:id="@+id/rl_job_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27px">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_job_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10px"
+                android:layout_toLeftOf="@+id/rl_btn_right">
+
+                <TextView
+                    android:id="@+id/txt_job"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/job"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlockSecondary"
+                    android:textSize="@dimen/s_24" />
+
+                <TextView
+                    android:id="@+id/txt_job_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/txt_job"
+                    android:layout_centerVertical="true"
+                    android:text="Paint Cabinets"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlockSecondary"
+                    android:textSize="@dimen/s_32"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_btn_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="15px">
+
+                <ImageView
+                    android:id="@+id/btn_job_right"
+                    android:layout_width="32px"
+                    android:layout_height="42px"
+                    app:srcCompat="@drawable/right" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btn_clock_in"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:layout_below="@+id/rl_job_top"
+            android:layout_marginBottom="35px"
+            android:layout_marginTop="25px"
+            android:background="@drawable/bg_round_background_green"
+            android:text="@string/transfer"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/s_32"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/btn_show_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_job"
+        android:layout_marginBottom="44px"
+        android:layout_marginTop="37px"
+        android:text="@string/show_all_options"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlockSecondary"
+        android:textSize="@dimen/s_28" />
+
+</RelativeLayout>

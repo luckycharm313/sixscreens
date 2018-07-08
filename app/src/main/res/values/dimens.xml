@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="s_65">65px</dimen>
+    <dimen name="s_28">28px</dimen>
+    <dimen name="s_24">24px</dimen>
+    <dimen name="s_32">32px</dimen>
+    <dimen name="s_40">40px</dimen>
+    <dimen name="s_60">60px</dimen>
+    <dimen name="s_126">126px</dimen>
+    <dimen name="s_13">13px</dimen>
+    <dimen name="s_33">33px</dimen>
+    <dimen name="s_38">38px</dimen>
+    <dimen name="s_50">50px</dimen>
+    <dimen name="s_42">42px</dimen>
+    <dimen name="s_30">30px</dimen>
+    <dimen name="s_35">35px</dimen>
+    <dimen name="s_16">16px</dimen>
+    <dimen name="s_17">17px</dimen>
+</resources>

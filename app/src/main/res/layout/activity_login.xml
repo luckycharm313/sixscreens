@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_login"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.tigerphp.sixscreensdemo.sixscreensdemo.activities.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/login_bg" />
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="361px">
+
+        <TextView
+            android:id="@+id/txt_heartland"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/heartland"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/s_65"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_toRightOf="@+id/txt_heartland"
+            android:text="@string/time"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_65" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_time_logo"
+        android:layout_width="156px"
+        android:layout_height="162px"
+        android:layout_below="@+id/rl_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72px"
+        android:scaleType="fitCenter"
+        android:src="@drawable/time_logo" />
+
+    <RelativeLayout
+        android:id="@+id/rl_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_time_logo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_login_form"
+        android:elevation="3px"
+        android:layout_marginLeft="77px"
+        android:layout_marginRight="77px"
+        android:layout_marginTop="55px"
+        android:paddingLeft="34px"
+        android:paddingRight="34px">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30px"
+            android:layout_marginTop="30px"
+            android:background="@android:color/transparent"
+            android:hint="@string/email"
+            android:inputType="text"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_28" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/email"
+            android:layout_marginBottom="30px"
+            android:layout_marginTop="30px"
+            android:background="@android:color/transparent"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_28" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_form"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="77px"
+        android:layout_marginRight="77px"
+        android:layout_marginTop="31px"
+        android:background="@drawable/bg_btn_login"
+        android:text="@string/login"
+        android:onClick="onLoginClick"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/s_40" />
+
+    <TextView
+        android:id="@+id/btn_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70px"
+        android:background="@android:color/transparent"
+        android:text="@string/forgot_password"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlockSecondary"
+        android:textSize="@dimen/s_32"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="49px"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlockSecondary"
+        android:textSize="@dimen/s_24"
+        android:text="@string/copyright" />
+</RelativeLayout>

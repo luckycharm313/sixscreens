@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:elevation="6px"
+    android:paddingLeft="@dimen/s_40"
+    android:paddingRight="@dimen/s_40">
+
+    <RelativeLayout
+        android:id="@+id/rl_time_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64px">
+
+        <TextView
+            android:id="@+id/txt_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rl_schedule_calendar"
+            android:text="@string/next_shift"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_42" />
+
+        <RelativeLayout
+            android:id="@+id/rl_schedule_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="15px"
+            android:paddingLeft="15px"
+            android:paddingTop="15px">
+
+            <ImageView
+                android:id="@+id/img_schedule_calendar"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                app:srcCompat="@drawable/right" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_time_schedule"
+        android:layout_marginTop="46px"
+        android:text="7:00 AM - 11:00 PM"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlockSecondary"
+        android:textSize="@dimen/s_35" />
+
+    <RelativeLayout
+        android:id="@+id/rl_item1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_duration"
+        android:layout_marginTop="15px">
+
+        <ImageView
+            android:id="@+id/img_calendar"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/calendar" />
+
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13px"
+            android:layout_toRightOf="@+id/img_calendar"
+            android:text="saturday, may 23, 2018"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_28" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_item2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_item1"
+        android:layout_marginTop="15px">
+
+        <ImageView
+            android:id="@+id/img_dot"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/dot" />
+
+        <TextView
+            android:id="@+id/txt_day_shift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13px"
+            android:layout_toRightOf="@+id/img_dot"
+            android:text="Day Shift"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_28" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_item3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_item2"
+        android:layout_marginTop="15px">
+
+        <ImageView
+            android:id="@+id/img_time"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/time" />
+
+        <TextView
+            android:id="@+id/txt_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13px"
+            android:layout_toRightOf="@+id/img_time"
+            android:text="10 Hours, Pay Estimate: $100"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_28" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_item4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_item3"
+        android:layout_marginTop="15px">
+
+        <ImageView
+            android:id="@+id/img_map"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/map" />
+
+        <TextView
+            android:id="@+id/txt_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13px"
+            android:layout_toRightOf="@+id/img_map"
+            android:text="865 Market St., San Francisco.CA"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_28" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_item_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_item4"
+        android:layout_marginBottom="30px"
+        android:layout_marginTop="46px">
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/rl_left"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="true">-->
+
+            <!---->
+        <!--</RelativeLayout>-->
+        <ImageView
+            android:id="@+id/img_cover"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/time_cover" />
+
+        <TextView
+            android:id="@+id/txt_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13px"
+            android:layout_toRightOf="@+id/img_cover"
+            android:text="@string/cover_shift"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_28" />
+
+        <ImageView
+            android:id="@+id/img_swap"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/txt_swap"
+            app:srcCompat="@drawable/time_swap" />
+
+        <TextView
+            android:id="@+id/txt_swap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13px"
+            android:text="@string/swap_shift"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_28" />
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/rl_right"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!---->
+        <!--</RelativeLayout>-->
+    </RelativeLayout>
+</RelativeLayout>

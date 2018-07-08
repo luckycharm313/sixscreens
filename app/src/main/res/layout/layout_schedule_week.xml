@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:elevation="6px"
+    android:paddingLeft="@dimen/s_40"
+    android:paddingRight="@dimen/s_40">
+
+    <RelativeLayout
+        android:id="@+id/rl_time_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50px">
+
+        <TextView
+            android:id="@+id/txt_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rl_schedule_calendar"
+            android:text="May 18 - May 24"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_42" />
+
+        <RelativeLayout
+            android:id="@+id/rl_schedule_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="15px"
+            android:paddingLeft="15px"
+            android:paddingTop="15px">
+
+            <ImageView
+                android:id="@+id/img_schedule_calendar"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                app:srcCompat="@drawable/schedule" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_seek_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_time_schedule">
+
+        <RelativeLayout
+            android:id="@+id/rl_scheduled_hours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_scheduled_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/rl_scheduled_estimated"
+                android:text="@string/scheduled_hours"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlockSecondary"
+                android:textSize="@dimen/s_32" />
+
+            <RelativeLayout
+                android:id="@+id/rl_scheduled_estimated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/txt_estimated_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/estimated"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlockSecondary"
+                    android:textSize="@dimen/s_24" />
+
+                <TextView
+                    android:id="@+id/txt_estimated_hours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_estimated_1"
+                    android:text="30h:30m"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlockSecondary"
+                    android:textSize="@dimen/s_30" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_progress_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_scheduled_hours"
+            android:layout_marginTop="20px">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_progress"
+                    android:layout_width="500px"
+                    android:layout_height="27px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_round_background_blue" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_border"
+                    android:layout_width="2px"
+                    android:layout_height="40px"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/view_progress"
+                    android:background="@color/colorBlockSecondary" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_background_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="14px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/view_border"
+                    android:background="@drawable/bg_round_background_black" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/view_progress_value"
+            android:layout_width="143px"
+            android:layout_height="83px"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="438px"
+            android:layout_marginTop="20px"
+            android:background="@drawable/bubbles"
+            android:tag="bubble">
+
+            <TextView
+                android:id="@+id/txt_actual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5px"
+                android:tag="bubble"
+                android:text="Actual"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/s_17" />
+
+            <TextView
+                android:id="@+id/txt_actual_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_actual"
+                android:layout_centerHorizontal="true"
+                android:tag="bubble"
+                android:text="21h:12m"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/s_24"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_seek_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_seek_1"
+        android:layout_marginTop="70px">
+
+        <RelativeLayout
+            android:id="@+id/rl_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_gross_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/rl_pay_estimated"
+                android:text="@string/gross_pay"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlockSecondary"
+                android:textSize="@dimen/s_32" />
+
+            <RelativeLayout
+                android:id="@+id/rl_pay_estimated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/txt_estimated_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/estimated"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlockSecondary"
+                    android:textSize="@dimen/s_24" />
+
+                <TextView
+                    android:id="@+id/txt_estimated_pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_estimated_2"
+                    android:text="$1012.51"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlockSecondary"
+                    android:textSize="@dimen/s_30" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_progress_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_pay"
+            android:layout_marginTop="20px">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_progress_1"
+                    android:layout_width="500px"
+                    android:layout_height="27px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_round_background_blue" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_border_1"
+                    android:layout_width="2px"
+                    android:layout_height="40px"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/view_progress_1"
+                    android:background="@color/colorBlockSecondary" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_background_progress_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="14px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/view_border_1"
+                    android:background="@drawable/bg_round_background_black" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/view_progress_value_1"
+            android:layout_width="143px"
+            android:layout_height="83px"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="438px"
+            android:layout_marginTop="20px"
+            android:background="@drawable/bubbles"
+            android:tag="bubble">
+
+            <TextView
+                android:id="@+id/txt_actual_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5px"
+                android:tag="bubble"
+                android:text="Actual"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/s_17" />
+
+            <TextView
+                android:id="@+id/txt_actual_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_actual_1"
+                android:layout_centerHorizontal="true"
+                android:tag="bubble"
+                android:text="$607.20"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/s_24"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_timesheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_seek_2"
+        android:layout_marginBottom="30px"
+        android:layout_marginTop="40px">
+
+        <ImageView
+            android:id="@+id/img_timesheet"
+            android:layout_width="40px"
+            android:layout_height="50px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/timesheet" />
+
+        <TextView
+            android:id="@+id/txt_view_timesheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:layout_toLeftOf="@+id/rl_btn_right"
+            android:layout_toRightOf="@+id/img_timesheet"
+            android:text="@string/view_timesheet"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_30" />
+
+        <RelativeLayout
+            android:id="@+id/rl_btn_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="15px"
+            android:paddingLeft="15px"
+            android:paddingTop="15px">
+
+            <ImageView
+                android:id="@+id/btn_job_right"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                app:srcCompat="@drawable/right" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

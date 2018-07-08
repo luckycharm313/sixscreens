@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+    <RelativeLayout
+        android:id="@+id/rl_tab1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/img_tab_dashboard"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/tab_dashboard" />
+
+        <TextView
+            android:id="@+id/txt_tab_dashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_tab_dashboard"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15px"
+            android:text="@string/dashboard"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/s_24"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_tab2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/img_tab_schedule"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/tab_schedule" />
+
+        <TextView
+            android:id="@+id/txt_tab_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_tab_schedule"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15px"
+            android:text="@string/schedule"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_24"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_tab3"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/img_tab_timesheets"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/tab_timesheets" />
+
+        <TextView
+            android:id="@+id/txt_tab_timesheets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_tab_timesheets"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15px"
+            android:text="@string/timesheets"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_24"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_tab4"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/img_tab_timeoff"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/tab_timeoff" />
+
+        <TextView
+            android:id="@+id/txt_tab_timeoff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_tab_timeoff"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15px"
+            android:text="@string/timeoff"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_24"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_tab5"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/img_tab_messages"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/tab_messages" />
+
+        <TextView
+            android:id="@+id/txt_tab_messages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_tab_messages"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15px"
+            android:text="@string/messages"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlockSecondary"
+            android:textSize="@dimen/s_24"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</LinearLayout>
