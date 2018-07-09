@@ -22,22 +22,22 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/img_avatar">
+            android:layout_toLeftOf="@+id/img_avatar_break">
 
             <TextView
-                android:id="@+id/txt_username"
+                android:id="@+id/txt_break_type_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Install Kichem Dos"
+                android:text="Lunch"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/s_28" />
 
             <TextView
-                android:id="@+id/txt_clockIn_time"
+                android:id="@+id/txt_break_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txt_username"
+                android:layout_below="@+id/txt_break_type_name"
                 android:text="3h:12m:06s"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
@@ -45,15 +45,17 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/img_avatar"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_avatar_break"
             android:layout_width="105px"
             android:layout_height="105px"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="13px"
-            android:scaleType="fitCenter"
-            android:src="@drawable/avatar" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar"
+            app:civ_border_color="@color/colorWhite"
+            app:civ_border_width="5px" />
 
     </RelativeLayout>
 
@@ -88,7 +90,7 @@
                 app:srcCompat="@drawable/map" />
 
             <TextView
-                android:id="@+id/txt_address"
+                android:id="@+id/txt_address_break"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -100,12 +102,15 @@
                 android:textSize="@dimen/s_24" />
         </RelativeLayout>
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
+        <fragment
+            android:id="@+id/mapView_break"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="260px"
             android:layout_below="@+id/rl_address"
-            android:layout_marginTop="10px" />
+            android:layout_marginTop="10px"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />-->
 
     </RelativeLayout>
 
@@ -145,12 +150,14 @@
                     android:textSize="@dimen/s_24" />
 
                 <TextView
-                    android:id="@+id/txt_job_title"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txt_job_title_break"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_below="@+id/txt_job"
                     android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:onClick="onChangeJob"
                     android:text="Paint Cabinets"
                     android:textAllCaps="false"
                     android:textColor="@color/colorBlockSecondary"
@@ -164,7 +171,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:padding="15px">
+                android:padding="15px"
+                android:clickable="true"
+                android:onClick="onChangeJob">
 
                 <ImageView
                     android:id="@+id/btn_job_right"
@@ -177,7 +186,7 @@
 
 
         <Button
-            android:id="@+id/btn_clock_in"
+            android:id="@+id/btn_clock_resume"
             android:layout_width="match_parent"
             android:layout_height="100px"
             android:layout_below="@+id/rl_job_top"
@@ -188,7 +197,8 @@
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/s_32"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:onClick="onClockIn"/>
 
     </RelativeLayout>
 
@@ -205,7 +215,8 @@
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/s_32"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:onClick="onClockOut"/>
 
     <TextView
         android:id="@+id/btn_show_all"

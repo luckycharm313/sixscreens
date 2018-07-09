@@ -8,6 +8,7 @@ public class Pusher {
     private String action;
     private String photoURL;
     private String jobName;
+    private String breakType;
     private boolean isClockIn;
 
     public Pusher(String action) {
@@ -21,6 +22,21 @@ public class Pusher {
         this.isClockIn = isIn;
     }
 
+    public Pusher(String action, String jobName, Boolean isIn) {
+        this.action = action;
+        this.jobName= jobName;
+        this.isClockIn = isIn;
+    }
+
+    public Pusher(String action, String breakType) {
+        this.action = action;
+        this.breakType = breakType;
+    }
+    public Pusher(String action, String photoUrl, String breakType) {
+        this.action = action;
+        this.breakType= breakType;
+        this.photoURL= photoUrl;
+    }
     public boolean isClockIn() {
         return isClockIn;
     }
@@ -50,5 +66,12 @@ public class Pusher {
 
     public void setJobName(String jobName) {
         this.jobName = jobName;
+    }
+    public String getBreakType() {
+        return breakType;
+    }
+
+    public void setBreakType(String breakType) {
+        this.breakType = breakType;
     }
 }

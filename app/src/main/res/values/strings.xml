@@ -8,6 +8,8 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="copyright">\u00a9 2018 - All Rights Reserved</string>
     <string name="dashboard">dashboard</string>
+    <string name="select_job">select job</string>
+    <string name="select_break">select break</string>
     <string name="current_clocked_out">Currently Clocked Out</string>
     <string name="job">Job</string>
     <string name="type">Type</string>

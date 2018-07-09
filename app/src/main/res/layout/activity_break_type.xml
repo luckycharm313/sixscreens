@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rl_job"
+    android:id="@+id/rl_breakType"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tigerphp.sixscreensdemo.sixscreensdemo.activities.JobActivity">
+    tools:context="com.tigerphp.sixscreensdemo.sixscreensdemo.activities.BreakTypeActivity">
+
     <RelativeLayout
         android:id="@+id/rl_topbar"
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/rl_settings"
             android:layout_toRightOf="@+id/rl_menu"
-            android:text="@string/select_job"
+            android:text="@string/select_break"
             android:textAllCaps="true"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
@@ -80,7 +80,7 @@
             android:background="@color/colorWhite">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/jobList"
+                android:id="@+id/breakTypeList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -89,7 +89,7 @@
                 android:paddingTop="20px"
                 android:paddingBottom="20px"
                 android:scrollbars="none"
-                tools:listitem="@layout/row_job" />
+                tools:listitem="@layout/row_break_type" />
         </LinearLayout>
 
         <ProgressBar

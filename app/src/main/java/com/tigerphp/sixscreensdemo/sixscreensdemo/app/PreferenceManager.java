@@ -20,7 +20,9 @@ public class PreferenceManager {
     private static final String KEY_USER_PREF = "KEY_USER_PREFERENCES";
     private static final String KEY_TOKEN = "KEY_TOKEN";
     private static final String KEY_USERDATA = "KEY_USERDATA";
+    private static final String key_test = "test";
 
+    private static final String KEY_TYPE = "KEY_TYPE";
     /**
      * method to get token
      *
@@ -40,6 +42,31 @@ public class PreferenceManager {
         mSharedPreferences = mContext.getSharedPreferences(KEY_USER_PREF, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mSharedPreferences.edit();
         editor.putString(KEY_TOKEN, token);
+        return editor.commit();
+    }
+
+
+    public static String getTest(Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences(KEY_USER_PREF, Context.MODE_PRIVATE);
+        return mSharedPreferences.getString(key_test, null);
+    }
+
+    public static boolean setTest(Context mContext, String test) {
+        mSharedPreferences = mContext.getSharedPreferences(KEY_USER_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString(key_test, test);
+        return editor.commit();
+    }
+
+    public static String getBreakType(Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences(KEY_USER_PREF, Context.MODE_PRIVATE);
+        return mSharedPreferences.getString(KEY_TYPE, null);
+    }
+
+    public static boolean setBreakType(Context mContext, String type) {
+        mSharedPreferences = mContext.getSharedPreferences(KEY_USER_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString(KEY_TYPE, type);
         return editor.commit();
     }
 

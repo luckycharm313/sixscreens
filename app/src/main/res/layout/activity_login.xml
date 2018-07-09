@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/login_bg" />
 
@@ -78,7 +78,8 @@
             android:hint="@string/email"
             android:inputType="text"
             android:textColor="@color/colorBlockSecondary"
-            android:textSize="@dimen/s_28" />
+            android:textSize="@dimen/s_28"
+            />
 
         <EditText
             android:id="@+id/password"

@@ -18,6 +18,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCZAsvwKmqVVk2KPKYT_YidlYKEPPyHwa4" />
+
         <activity
             android:name=".activities.LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|locale"
@@ -40,7 +48,10 @@
         <activity
             android:name=".activities.MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.JobActivity"></activity>
+        <activity
+            android:name=".activities.JobActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.BreakTypeActivity" android:screenOrientation="portrait" ></activity>
     </application>
 
 </manifest>

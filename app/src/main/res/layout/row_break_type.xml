@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rl_row_break_type_item"
+    android:minWidth="1px"
+    android:paddingBottom="30px"
+    android:paddingTop="30px"
+    android:background="@drawable/row_background"
+    android:clickable="true"
+    >
+
+    <TextView
+        android:id="@+id/txt_type_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lunch"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlockSecondary"
+        android:textSize="@dimen/s_40" />
+
+</RelativeLayout>
