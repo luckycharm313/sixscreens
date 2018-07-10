@@ -23,6 +23,7 @@ public class PreferenceManager {
     private static final String key_test = "test";
 
     private static final String KEY_TYPE = "KEY_TYPE";
+    private static final String KEY_WORK_TIME = "KEY_WORK_TIME";
     /**
      * method to get token
      *
@@ -67,6 +68,18 @@ public class PreferenceManager {
         mSharedPreferences = mContext.getSharedPreferences(KEY_USER_PREF, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mSharedPreferences.edit();
         editor.putString(KEY_TYPE, type);
+        return editor.commit();
+    }
+
+    public static long getWorkTime(Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences(KEY_USER_PREF, Context.MODE_PRIVATE);
+        return mSharedPreferences.getLong(KEY_WORK_TIME, 0L);
+    }
+
+    public static boolean setWorkTime(Context mContext, long workTime) {
+        mSharedPreferences = mContext.getSharedPreferences(KEY_USER_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putLong(KEY_WORK_TIME, workTime);
         return editor.commit();
     }
 

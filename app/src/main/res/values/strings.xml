@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SixScreensDemo</string>
+    <string name="app_name">Heartland Time</string>
     <string name="heartland">Heartland</string>
     <string name="time">Time</string>
     <string name="email">Email</string>
@@ -30,4 +30,8 @@
     <string name="take_break">Take a Break</string>
     <string name="clockOut">Clock Out</string>
     <string name="resume_work">Resume Work</string>
+    <string name="settings">SETTINGS</string>
+    <string name="chat_support">CHAT WITH SUPPORT</string>
+    <string name="send_feedback">SEND FEEDBACK</string>
+    <string name="signout">SIGN OUT</string>
 </resources>

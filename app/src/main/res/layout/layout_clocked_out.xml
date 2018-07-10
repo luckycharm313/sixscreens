@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="10px"
-                android:layout_toLeftOf="@+id/rl_btn_right">
+                android:layout_toLeftOf="@+id/rl_btn_right_clockout">
 
                 <TextView
                     android:id="@+id/txt_job"
@@ -81,14 +81,14 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rl_btn_right"
+                android:id="@+id/rl_btn_right_clockout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:padding="15px"
                 android:clickable="true"
-                android:onClick="onChangeJob">
+                android:onClick="onChangeJob"
+                android:padding="15px">
 
                 <ImageView
                     android:id="@+id/btn_job_right"

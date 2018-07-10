@@ -326,7 +326,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10px"
-            android:layout_toLeftOf="@+id/rl_btn_right"
+            android:layout_toLeftOf="@+id/rl_btn_right_clockout"
             android:layout_toRightOf="@+id/img_timesheet"
             android:text="@string/view_timesheet"
             android:textAllCaps="false"
@@ -334,7 +334,7 @@
             android:textSize="@dimen/s_30" />
 
         <RelativeLayout
-            android:id="@+id/rl_btn_right"
+            android:id="@+id/rl_btn_right_clockout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

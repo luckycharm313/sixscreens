@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="10px"
-                android:layout_toLeftOf="@+id/rl_btn_right">
+                android:layout_toLeftOf="@+id/rl_btn_right_clockin">
 
                 <TextView
                     android:id="@+id/txt_job"
@@ -156,9 +156,9 @@
                     android:layout_alignParentLeft="true"
                     android:layout_below="@+id/txt_job"
                     android:layout_centerVertical="true"
-                    android:text="Paint Cabinets"
                     android:clickable="true"
                     android:onClick="onChangeJob"
+                    android:text="Paint Cabinets"
                     android:textAllCaps="false"
                     android:textColor="@color/colorBlockSecondary"
                     android:textSize="@dimen/s_32"
@@ -166,21 +166,20 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rl_btn_right"
+                android:id="@+id/rl_btn_right_clockin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:padding="15px"
                 android:clickable="true"
-                android:onClick="onChangeJob">
+                android:onClick="onChangeJob"
+                android:padding="15px">
 
                 <ImageView
                     android:id="@+id/btn_job_right"
                     android:layout_width="32px"
                     android:layout_height="42px"
-                    app:srcCompat="@drawable/right"
-                    />
+                    app:srcCompat="@drawable/right" />
 
             </RelativeLayout>
         </RelativeLayout>
@@ -194,11 +193,11 @@
             android:layout_marginBottom="35px"
             android:layout_marginTop="25px"
             android:background="@drawable/bg_round_background_green"
+            android:onClick="onClockIn"
             android:text="@string/transfer"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/s_32"
-            android:onClick="onClockIn"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -260,9 +259,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:padding="15px"
                 android:clickable="true"
-                android:onClick="onChangeType">
+                android:onClick="onChangeType"
+                android:padding="15px">
 
                 <ImageView
                     android:id="@+id/btn_type_right"
@@ -272,6 +271,7 @@
 
             </RelativeLayout>
         </RelativeLayout>
+
         <Button
             android:id="@+id/btn_break"
             android:layout_width="match_parent"
@@ -280,17 +280,17 @@
             android:layout_marginBottom="35px"
             android:layout_marginTop="25px"
             android:background="@drawable/bg_round_background_yellow"
+            android:onClick="onBreak"
             android:text="@string/take_break"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/s_32"
-            android:textStyle="bold"
-            android:onClick="onBreak"/>
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
     <Button
-        android:id="@+id/btn_check_out"
+        android:id="@+id/btn_check_out_clockin"
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:layout_below="@+id/rl_break_type"
@@ -298,18 +298,18 @@
         android:layout_marginRight="36px"
         android:layout_marginTop="25px"
         android:background="@drawable/bg_round_background_red"
+        android:onClick="onClockOut"
         android:text="@string/clockOut"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/s_32"
-        android:onClick="onClockOut"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/btn_show_all"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_check_out"
+        android:layout_below="@+id/btn_check_out_clockin"
         android:layout_marginBottom="44px"
         android:layout_marginTop="37px"
         android:text="@string/show_all_options"

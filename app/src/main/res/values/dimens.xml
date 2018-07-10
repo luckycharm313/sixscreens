@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="s_65">65px</dimen>
     <dimen name="s_28">28px</dimen>
     <dimen name="s_24">24px</dimen>
@@ -16,4 +16,5 @@
     <dimen name="s_35">35px</dimen>
     <dimen name="s_16">16px</dimen>
     <dimen name="s_17">17px</dimen>
+    <dimen name="design_navigation_icon_size" tools:override="true">50px</dimen>
 </resources>

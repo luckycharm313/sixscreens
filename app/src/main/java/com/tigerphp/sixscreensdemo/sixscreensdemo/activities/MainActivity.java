@@ -1,61 +1,52 @@
 package com.tigerphp.sixscreensdemo.sixscreensdemo.activities;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
-import android.util.Log;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.loopj.android.http.RequestParams;
 import com.tigerphp.sixscreensdemo.sixscreensdemo.R;
 import com.tigerphp.sixscreensdemo.sixscreensdemo.adapters.HomeTabsAdapter;
-import com.tigerphp.sixscreensdemo.sixscreensdemo.api.APIInterface;
-import com.tigerphp.sixscreensdemo.sixscreensdemo.api.ApiManager;
-import com.tigerphp.sixscreensdemo.sixscreensdemo.app.AppConstants;
-import com.tigerphp.sixscreensdemo.sixscreensdemo.app.AppHelper;
-import com.tigerphp.sixscreensdemo.sixscreensdemo.app.EndPoints;
+import com.tigerphp.sixscreensdemo.sixscreensdemo.app.ImageLoader;
 import com.tigerphp.sixscreensdemo.sixscreensdemo.app.PreferenceManager;
-import com.tigerphp.sixscreensdemo.sixscreensdemo.models.Pusher;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
-import static com.tigerphp.sixscreensdemo.sixscreensdemo.app.AppConstants.EVENT_BUS_UPDATE_BREAK_TYPE;
-import static com.tigerphp.sixscreensdemo.sixscreensdemo.app.AppConstants.EVENT_BUS_UPDATE_JOB_TITLE;
 import static com.tigerphp.sixscreensdemo.sixscreensdemo.app.AppConstants.PERMISSION_REQUEST_CODE;
 
-public class MainActivity extends BaseActivity{
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     @BindView(R.id.viewpager)
     ViewPager viewPager;
     @BindView(R.id.tabs)
     TabLayout tabLayout;
 
+    @BindView(R.id.nav_view)
+    NavigationView nav_view;
+    @BindView(R.id.rl_main)
+    DrawerLayout rl_main;
+
     HomeTabsAdapter mFragmentStatePagerAdapter;
     JSONObject userData = null;
-    String jobTitle = "Basement Slab Preparation";
-    String breakType = "Lunch";
-    int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +59,7 @@ public class MainActivity extends BaseActivity{
     }
 
     private void initializerView() {
-        EventBus.getDefault().register(this);
-
         userData = PreferenceManager.getUserData(this);
-
-        if(PreferenceManager.getTest(this) !=null)
-            jobTitle = PreferenceManager.getTest(this);
-
-        if(PreferenceManager.getBreakType(this) !=null)
-            breakType = PreferenceManager.getBreakType(this);
 
         mFragmentStatePagerAdapter = new HomeTabsAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mFragmentStatePagerAdapter);
@@ -108,11 +91,35 @@ public class MainActivity extends BaseActivity{
 
             }
         });
+
+        try {
+            String username = userData.getString("firstName") + " "+ userData.getString("lastName");
+            String url = userData.getString("photoURL");
+
+
+            View menuNav = nav_view.getHeaderView(0);
+            nav_view.setNavigationItemSelectedListener(this);
+
+            TextView tv = (TextView) menuNav.findViewById(R.id.nav_header_textView);
+            CircleImageView img_avatar_menu = (CircleImageView) menuNav.findViewById(R.id.img_avatar_menu);
+
+            tv.setText(username);
+            ImageLoader.loadCircleImage(this, url, img_avatar_menu, R.drawable.avatar);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 
     private void Permissions() {
@@ -124,294 +131,59 @@ public class MainActivity extends BaseActivity{
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, PERMISSION_REQUEST_CODE);
         }
     }
-    /** clock in button in layout_clocked_out **/
-    public void onClockIn(View v){
 
-
-        if (ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA, }, PERMISSION_REQUEST_CODE);
-        }
-        else{
-            if (ContextCompat.checkSelfPermission(MainActivity.this,
-                    Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                // Permission is not granted
-                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_CODE);
-            }
-            else{
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-                    intent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1); }
-                else { intent.putExtra("android.intent.extras.CAMERA_FACING", 1); }
-                startActivityForResult(intent, AppConstants.UPLOAD_PICTURE_REQUEST_CODE);
-                if(v.getId()== R.id.btn_clock_in_transfor){
-                    flag = 2 ;
-                }
-                else if(v.getId()== R.id.btn_clock_resume){
-                    flag = 3;
-                }
-            }
-
-        }
+    public void onClickMenu(View v){
+        rl_main.openDrawer(GravityCompat.START);
     }
 
-    public void onBreak(View v){
-
-
-        if (ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA, }, PERMISSION_REQUEST_CODE);
-        }
-        else{
-            if (ContextCompat.checkSelfPermission(MainActivity.this,
-                    Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                // Permission is not granted
-                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_CODE);
-            }
-            else{
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-                    intent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1); }
-                else { intent.putExtra("android.intent.extras.CAMERA_FACING", 1); }
-                startActivityForResult(intent, AppConstants.UPLOAD_PICTURE_REQUEST_CODE_BREAK);
-            }
-
-        }
+    public void closeMenu(View v){
+        rl_main.closeDrawer(GravityCompat.START);
     }
 
-    public void onChangeJob(View _v){
-        Intent mIntent = new Intent(this, JobActivity.class);
-        this.startActivity(mIntent);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_main_drawer, menu);
+        return true;
     }
 
-    public void onChangeType(View _v){
-        Intent mIntent = new Intent(this, BreakTypeActivity.class);
-        this.startActivity(mIntent);
-    }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-    /** clock in button in layout_clocked_in **/
-
-    public void onClockOut(View v){
-        if (ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CODE);
-        }
-        else{
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-                intent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1); }
-            else { intent.putExtra("android.intent.extras.CAMERA_FACING", 1); }
-            startActivityForResult(intent, AppConstants.UPLOAD_PICTURE_REQUEST_CODE_);
-        }
-    }
-
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case AppConstants.UPLOAD_PICTURE_REQUEST_CODE:
-
-                    //Uri _uri = data.getData();
-                    try {
-                        Bundle extras = data.getExtras();
-                        Bitmap imageBitmap = (Bitmap) extras.get("data");
-
-                        // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
-                        Uri tempUri = AppHelper.getImageUri(getApplicationContext(), imageBitmap);
-
-                        String FilePath = AppHelper.getFilePath(MainActivity.this, tempUri);
-                        final String jobName = jobTitle;
-
-                        try {
-                            InputStream targetStream = new FileInputStream(FilePath);
-                            RequestParams params    = new RequestParams();
-                            params.put("username", userData.getString("username"));
-                            params.put("jobName", jobName);
-                            params.put("photo", targetStream);
-
-                            String endpoint = null;
-                            if( flag == 2 ){
-                                endpoint = EndPoints.transferEndpoint;
-                            }
-                            else if(flag == 3){
-                                endpoint = EndPoints.resumeWorkEndpoint;
-                            }
-                            else{
-                                endpoint = EndPoints.clockInEndpoint;
-                            }
-
-                            ApiManager.callApi(endpoint, params, new APIInterface() {
-                                @Override
-                                public void onSuccess(JSONObject response) throws JSONException {
-                                    Boolean status      = response.getBoolean("success");
-
-                                    if(status){
-                                        JSONObject user_data = response.getJSONObject("data");
-                                        String photoURL = user_data.getString("photoURL");
-
-                                        EventBus.getDefault().post(new Pusher(AppConstants.EVENT_BUS_NEW_USER_PHOTO, photoURL, jobName, true));
-                                    }
-                                    else{
-                                        String message = response.getString("message");
-                                        AppHelper.CustomToast(MainActivity.this, message);
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(JSONObject response) throws JSONException {
-                                    AppHelper.CustomToast(MainActivity.this, "Network Error!");
-                                }
-                            });
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-
-                    } catch (JSONException e) {
-                        Log.e("tag", "err"+e);
-                        e.printStackTrace();
-                    }
-
-                    break;
-                case AppConstants.UPLOAD_PICTURE_REQUEST_CODE_:
-
-                    try {
-                        Bundle extras = data.getExtras();
-                        Bitmap imageBitmap = (Bitmap) extras.get("data");
-
-                        // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
-                        Uri tempUri = AppHelper.getImageUri(getApplicationContext(), imageBitmap);
-
-                        String FilePath = AppHelper.getFilePath(MainActivity.this, tempUri);
-
-                        final String jobName = jobTitle;
-
-                        try {
-                            InputStream __targetStream = new FileInputStream(FilePath);
-                            RequestParams __params    = new RequestParams();
-                            __params.put("username", userData.getString("username"));
-                            __params.put("jobName", jobName);
-                            __params.put("photo", __targetStream);
-
-                            String endpoint = EndPoints.clockOutEndpoint;
-
-                            ApiManager.callApi(endpoint, __params, new APIInterface() {
-                                @Override
-                                public void onSuccess(JSONObject response) throws JSONException {
-                                    Boolean status      = response.getBoolean("success");
-
-                                    if(status){
-                                        JSONObject user_data = response.getJSONObject("data");
-                                        String photoURL = user_data.getString("photoURL");
-
-                                        EventBus.getDefault().post(new Pusher(AppConstants.EVENT_BUS_NEW_USER_PHOTO, photoURL, jobName, false));
-                                    }
-                                    else{
-                                        String message = response.getString("message");
-                                        AppHelper.CustomToast(MainActivity.this, message);
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(JSONObject response) throws JSONException {
-                                    AppHelper.CustomToast(MainActivity.this, "Network Error!");
-                                }
-                            });
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-
-                    } catch (JSONException e) {
-                        Log.e("tag", "err"+e);
-                        e.printStackTrace();
-                    }
-
-                    break;
-                case AppConstants.UPLOAD_PICTURE_REQUEST_CODE_BREAK:
-
-                    try {
-                        Bundle extras = data.getExtras();
-                        Bitmap imageBitmap = (Bitmap) extras.get("data");
-
-                        // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
-                        Uri tempUri = AppHelper.getImageUri(getApplicationContext(), imageBitmap);
-
-                        String FilePath = AppHelper.getFilePath(MainActivity.this, tempUri);
-
-                        final String breakName = breakType;
-
-                        try {
-                            InputStream __targetStream = new FileInputStream(FilePath);
-                            RequestParams __params    = new RequestParams();
-                            __params.put("username", userData.getString("username"));
-                            __params.put("breakName", breakName);
-                            __params.put("photo", __targetStream);
-
-                            String endpoint = EndPoints.startBreakEndpoint;
-
-                            ApiManager.callApi(endpoint, __params, new APIInterface() {
-                                @Override
-                                public void onSuccess(JSONObject response) throws JSONException {
-                                    Boolean status      = response.getBoolean("success");
-
-                                    if(status){
-                                        JSONObject user_data = response.getJSONObject("data");
-                                        String photoURL = user_data.getString("photoURL");
-
-                                        EventBus.getDefault().post(new Pusher(AppConstants.EVENT_BUS_UPDATE_BREAK, photoURL, breakType));
-                                    }
-                                    else{
-                                        String message = response.getString("message");
-                                        AppHelper.CustomToast(MainActivity.this, message);
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(JSONObject response) throws JSONException {
-                                    AppHelper.CustomToast(MainActivity.this, "Network Error!");
-                                }
-                            });
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                    break;
-                default:
-
-            }
-        }
-    }
-
-
-    /**
-     * method of EventBus
-     *
-     * @param pusher this is parameter of onEventMainThread method
-     */
-
-    @SuppressWarnings("unused")
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEventMainThread(Pusher pusher) {
-        switch (pusher.getAction()) {
-            case EVENT_BUS_UPDATE_JOB_TITLE:
-                boolean isClockIn = pusher.isClockIn();
-                jobTitle = pusher.getJobName();
+        switch (item.getItemId()) {
+            case R.id.nav_item_setting:
                 break;
-            case EVENT_BUS_UPDATE_BREAK_TYPE:
-                breakType = pusher.getBreakType();
+            case R.id.nav_item_chat:
+                break;
+            case R.id.nav_item_feedback:
+                break;
+            case R.id.nav_item_signout:
+                Logout();
                 break;
 
         }
+        rl_main.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    public void Logout(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Are you sure you want to logout?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                PreferenceManager.setToken(MainActivity.this, null);
+                Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
+                MainActivity.this.startActivity(mIntent);
+            }
+        });
+        alert.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+            }
+        });
+
+        alert.setCancelable(false);
+        alert.show();
     }
 }

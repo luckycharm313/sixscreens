@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item android:id="@+id/nav_item_setting"
+        android:icon="@drawable/settings_black"
+        android:title="@string/settings"/>
+    <item android:id="@+id/nav_item_chat"
+        android:icon="@drawable/tab_messages"
+        android:title="@string/chat_support" />
+    <item android:id="@+id/nav_item_feedback"
+        android:icon="@drawable/bookmark"
+        android:title="@string/send_feedback" />
+    <item android:id="@+id/nav_item_signout"
+        android:icon="@drawable/signout"
+        android:title="@string/signout" />
+</menu>

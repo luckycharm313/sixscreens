@@ -66,8 +66,6 @@ public class BreakTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             final String finalBreakType = breakType;
 
             breakTypeViewHolder.setOnClickListener(view -> {
-
-                EventBus.getDefault().post(new Pusher(AppConstants.EVENT_BUS_UPDATE_BREAK_TYPE, finalBreakType));
                 PreferenceManager.setBreakType(mActivity, finalBreakType);
                 mActivity.finish();
             });

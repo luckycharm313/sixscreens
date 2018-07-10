@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.tigerphp.sixscreensdemo.sixscreensdemo.fragments.DashboardFragment;
+import com.tigerphp.sixscreensdemo.sixscreensdemo.fragments.ScheduleFragment;
 
 /**
  * Created by luckycharm on 7/8/18.
@@ -22,13 +23,13 @@ public class HomeTabsAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return new DashboardFragment();
             case 1:
-                return new DashboardFragment();
+                return new ScheduleFragment();
             case 2:
-                return new DashboardFragment();
+                return new ScheduleFragment();
             case 3:
-                return new DashboardFragment();
+                return new ScheduleFragment();
             case 4:
-                return new DashboardFragment();
+                return new ScheduleFragment();
 
         }
         return null;

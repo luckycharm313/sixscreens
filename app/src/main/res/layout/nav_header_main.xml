@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="50px"
+    android:paddingLeft="50px"
+    android:paddingTop="50px">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_avatar_menu"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="13px"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avatar"
+        app:civ_border_color="@color/colorWhite"
+        app:civ_border_width="5px" />
+
+    <TextView
+        android:id="@+id/nav_header_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30px"
+        android:layout_toLeftOf="@+id/rl_close"
+        android:layout_toRightOf="@+id/img_avatar_menu"
+        android:text="Chike Mgbemena"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorBlockSecondary"
+        android:textSize="@dimen/s_42"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/rl_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="30px"
+        android:paddingLeft="30px"
+        android:paddingRight="50px"
+        android:paddingTop="10px"
+        android:clickable="true"
+        android:onClick="closeMenu">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentRight="false"
+            app:srcCompat="@drawable/close" />
+    </RelativeLayout>
+
+</RelativeLayout>

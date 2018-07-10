@@ -67,8 +67,6 @@ public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
 
             final String finalJobTitle = jobTitle;
             jobViewHolder.setOnClickListener(view -> {
-
-                EventBus.getDefault().post(new Pusher(AppConstants.EVENT_BUS_UPDATE_JOB_TITLE, finalJobTitle, true));
                 PreferenceManager.setTest(mActivity, finalJobTitle);
                 mActivity.finish();
             });
